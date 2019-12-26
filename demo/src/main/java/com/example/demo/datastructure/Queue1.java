@@ -14,7 +14,7 @@ public class Queue1 {
         mq.insert(3);
         //mq = [1,2,3]
         //长度:3
-        System.out.println("长度:"+mq.getSize());
+        System.out.println("长度:" + mq.getSize());
 
         // 1
         System.out.println(mq.peekFront());
@@ -47,6 +47,7 @@ class MyQueue {
 
     /**
      * 初始化队列
+     *
      * @param size
      */
     public MyQueue(int size) {
@@ -59,6 +60,7 @@ class MyQueue {
 
     /**
      * 入队
+     *
      * @param value
      */
     public void insert(int value) {
@@ -73,9 +75,9 @@ class MyQueue {
         }
     }
 
-
     /**
      * 出队
+     *
      * @return
      */
     public Object remove() {
@@ -93,14 +95,16 @@ class MyQueue {
 
     /**
      * 获取队头元素
+     *
      * @return
      */
     public Object peekFront() {
-        return  queArray[front];
+        return queArray[front];
     }
 
     /**
      * 判断队列是否满
+     *
      * @return
      */
     public boolean isFull() {
@@ -109,6 +113,7 @@ class MyQueue {
 
     /**
      * 判断队列是否为空
+     *
      * @return
      */
     public boolean isEmpty() {
@@ -117,12 +122,11 @@ class MyQueue {
 
     /**
      * 返回队列大小
+     *
      * @return
      */
-    public int getSize(){
+    public int getSize() {
         return nItems;
     }
-
-
 
 }
