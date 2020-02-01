@@ -15,7 +15,7 @@ public class Queue2 {
     }
 }
 
-class MyDeQue{
+class MyDeQue2{
 
     /**
      * 内部封装数组
@@ -42,7 +42,7 @@ class MyDeQue{
      */
     private int tail;
 
-    public MyDeQue(){
+    public MyDeQue2(){
         this.elements = new Object[DEFAULT_CAPACITY];
     }
 
