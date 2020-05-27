@@ -1,5 +1,7 @@
 package com.example.demo.datastructure;
 
+import java.util.Stack;
+
 /**
  * @author AK
  * @ClassName: stack
@@ -9,6 +11,14 @@ package com.example.demo.datastructure;
 public class Stack1 {
     public static void main(String[] args) {
 
+        /* JDK栈 */
+        Stack<String> stack = new Stack<>();
+        stack.push("11");
+        stack.push("22");
+        stack.push("33");
+        System.out.println(stack);
+
+        /* 个人栈 */
         LowerStack ls = new LowerStack(3);
 
         ls.push(1);
@@ -25,25 +35,38 @@ public class Stack1 {
     }
 }
 
+/**
+ * 实现简单的栈
+ * 详:栈遵守元素 先进后出 ,不遵守就不是栈
+ */
 class LowerStack{
 
+    /*
+     * 利用数组实现栈
+     * elemData 存放数组
+     * maxSize 初始化栈大小
+     * top 栈顶元素
+     */
     private long [] elemData;
     private int maxSize;
     private int top;
 
     /**
      * 初始化栈
-     * @param size
+     * @param size 长度
+     * maxSize 栈长度
+     * elemData 数组大小
+     * top 栈顶元素(-1代表空栈)
      */
     public LowerStack(int size){
-        this.maxSize=size;
+        this.maxSize = size;
         elemData = new long[size];
         top = -1;
     }
 
     /**
      * 实现压栈,添加(进栈)
-     * @param data
+     * @param data 元素
      */
     public void push(long data){
         if(top != maxSize-1){
@@ -53,7 +76,6 @@ class LowerStack{
 
     /**
      * 出栈,弹栈
-     * @return
      */
     public long pop(){
         if(top == -1){
@@ -64,7 +86,6 @@ class LowerStack{
 
     /**
      * 读栈,返回顶端元素
-     * @return
      */
     public long peek(){
         if(top == -1 ){
@@ -75,7 +96,8 @@ class LowerStack{
 
     /**
      * 空栈判断
-     * @return
+     *
+     *
      */
     public boolean isEmpty(){
         return (top == -1);
@@ -83,7 +105,6 @@ class LowerStack{
 
     /**
      * 满栈判断
-     * @return
      */
     public boolean isFull(){
         return (top == maxSize-1);

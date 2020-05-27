@@ -2,9 +2,8 @@ package com.example.demo.datastructure.graph;
 
 /**
  * @author sk143
- * @Name：阿康
- * @Description：顶点数据类
- * @Date：2020/2/8 11:51
+ * @Description: 顶点数据类(图节点)
+ * @date 2020/2/8 11:51
  */
 public class Vertex {
 

@@ -5,9 +5,7 @@ import java.util.Arrays;
 
 /**
  * @author sk143
- * @Name：阿康
- * @Description：希尔排序
- * @Date：2020/1/20 17:15
+ * 希尔排序
  */
 public class AdvancedSortDemo1 {
 
@@ -22,7 +20,6 @@ public class AdvancedSortDemo1 {
 
     /**
      * 插入排序实现
-     * @param data
      */
     public static void insertSort(int[] data){
         System.out.println("排序前"+ Arrays.toString(data));

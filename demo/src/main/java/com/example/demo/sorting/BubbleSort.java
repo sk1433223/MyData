@@ -8,16 +8,18 @@ public class BubbleSort {
 
 
     public static void main(String[] args) {
-
+        int [] array = {3,1,4,2,7,5,9,6,0,8};
+        int[] ints = writeDemo(array);
+        for (int anInt : ints) {
+            System.out.println(anInt);
+        }
 
     }
 
     /**
      * 冒泡排序
-     *
-     * @param array
-     * @return
      */
+    @SuppressWarnings("unused")
     public static int[] bubbleSort(int[] array) {
         if (array.length == 0) {
             return array;
@@ -32,6 +34,23 @@ public class BubbleSort {
             }
         }
         return array;
+    }
+
+
+    public static int[] writeDemo(int [] arr) {
+        if(arr == null) {
+            return null;
+        }
+        for (int i = 0; i < arr.length ; i++) {
+            for (int j = i; j < arr.length - i -1 ; j++) {
+                if(arr[j] > arr[j+1]){
+                    int tem = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tem;
+                }
+            }
+        }
+        return arr;
     }
 
 }

@@ -3,9 +3,7 @@ package com.example.demo.recursion;
 import java.util.Scanner;
 
 /**
- * @Name：阿康
- * @Description：递归实现数字三角的路径
- * @Date：2020/1/17 17:25
+ * 递归实现数字三角的路径
  */
 public class RecursionDemo2 {
     // 存放三角形数字
@@ -41,9 +39,8 @@ public class RecursionDemo2 {
 
     /**
      * 使用递归实现
-     * @param i
-     * @param j
-     * @return
+     * @param i 数
+     * @param j 数
      */
     public static int maxSum(int i,int j){
         if(i == n){

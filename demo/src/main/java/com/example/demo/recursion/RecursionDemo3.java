@@ -1,9 +1,7 @@
 package com.example.demo.recursion;
 
 /**
- * @Name：阿康
- * @Description：二分查找法
- * @Date：2020/1/18 13:16
+ * 二分查找法
  */
 public class RecursionDemo3 {
 
@@ -19,9 +17,8 @@ public class RecursionDemo3 {
 
     /**
      * 使用循环二分查找法
-     * @param arr
-     * @param key
-     * @return
+     * @param arr 目标数组
+     * @param key 查找元素
      */
     public static int findTwoPoint (int[] arr,int key){
         int start = 0;
@@ -43,11 +40,10 @@ public class RecursionDemo3 {
 
     /**
      * 递归，二分查找法
-     * @param arr
-     * @param key
-     * @param low
-     * @param high
-     * @return
+     * @param arr 目标数组
+     * @param key 查找元素
+     * @param low 下标
+     * @param high 上标
      */
     public static  int search(int[] arr,int key,int low,int high) {
         int mid = (high-low)/2+low;

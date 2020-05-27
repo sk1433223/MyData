@@ -1,12 +1,10 @@
-package com.example.demo.sorting;
+package com.example.demo.sorting.advanced;
 
 import java.util.Arrays;
 
 /**
  * @author sk143
- * @Name：阿康
- * @Description：希尔排序算法
- * @Date：2020/1/23 15:02
+ * 希尔排序算法
  */
 public class ShellSort {
 
@@ -19,8 +17,8 @@ public class ShellSort {
     /**
      * 希尔排序
      *
-     * @param array
-     * @return
+     * @param array 排序数组
+     * @return array
      */
     public static int[] ShellSort(int[] array) {
         int len = array.length;

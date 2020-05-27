@@ -32,12 +32,12 @@ public class Queue1 {
 
 class MyQueue {
 
-    /**
-     * @param queArray[]
-     * @param maxSize 队列大小
-     * @param front 队头
-     * @param rear 队尾
-     * @param nItems 实际数目
+    /*
+     *  queArray[]
+     *  maxSize 队列大小
+     *  front 队头
+     *  rear 队尾
+     *  nItems 实际数目
      */
     private Object[] queArray;
     private int maxSize;
@@ -47,8 +47,7 @@ class MyQueue {
 
     /**
      * 初始化队列
-     *
-     * @param size
+     * @param size 队列长度
      */
     public MyQueue(int size) {
         this.maxSize = size;
@@ -61,7 +60,7 @@ class MyQueue {
     /**
      * 入队
      *
-     * @param value
+     * @param value 入队值
      */
     public void insert(int value) {
         if (isFull()) {
@@ -77,11 +76,9 @@ class MyQueue {
 
     /**
      * 出队
-     *
-     * @return
      */
     public Object remove() {
-        Object removeValue = null;
+        Object removeValue;
         if (!isEmpty()) {
             removeValue = queArray[front++];
             if (front == maxSize) {
@@ -95,8 +92,6 @@ class MyQueue {
 
     /**
      * 获取队头元素
-     *
-     * @return
      */
     public Object peekFront() {
         return queArray[front];
@@ -104,8 +99,6 @@ class MyQueue {
 
     /**
      * 判断队列是否满
-     *
-     * @return
      */
     public boolean isFull() {
         return (nItems == maxSize);
@@ -113,8 +106,6 @@ class MyQueue {
 
     /**
      * 判断队列是否为空
-     *
-     * @return
      */
     public boolean isEmpty() {
         return (nItems == 0);
@@ -122,8 +113,6 @@ class MyQueue {
 
     /**
      * 返回队列大小
-     *
-     * @return
      */
     public int getSize() {
         return nItems;
