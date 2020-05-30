@@ -15,7 +15,7 @@ public class IteratorLinkTest {
         link.addHeader(3);
 
         Iterator<Integer> iterator = link.getIterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
     }

@@ -18,37 +18,38 @@ public class RecursionDemo2 {
         n = sc.nextInt();
         // 实例化二维数组
         data = new int[n][n];
-        for (int i = 1; i <= n ; i++) {
-            for (int j = 1; j <= i ; j++) {
-                System.out.print("输入第"+i+"行，第"+j+"列数字");
-                data[i-1][j-1] = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("输入第" + i + "行，第" + j + "列数字");
+                data[i - 1][j - 1] = sc.nextInt();
             }
         }
         System.out.println("-----------------数字三角行显示---------------------");
-        for (int i = 1; i <= n ; i++) {
-            for (int j = 1; j <= i ; j++) {
-                System.out.print(data[i-1][j-1]+"\t");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(data[i - 1][j - 1] + "\t");
             }
             System.out.println();
         }
         System.out.println("-----------------最终显示结果---------------------");
-        int rs = maxSum(1,1);
-        System.out.println("结果："+ rs);
+        int rs = maxSum(1, 1);
+        System.out.println("结果：" + rs);
 
     }
 
     /**
      * 使用递归实现
+     *
      * @param i 数
      * @param j 数
      */
-    public static int maxSum(int i,int j){
-        if(i == n){
-            return  data[i-1][j-1];
-        }else {
-            int x = maxSum(i+1,j);
-            int y = maxSum(i+1,j+1);
-            return Math.max(x,y)+data[i-1][j-1];
+    public static int maxSum(int i, int j) {
+        if (i == n) {
+            return data[i - 1][j - 1];
+        } else {
+            int x = maxSum(i + 1, j);
+            int y = maxSum(i + 1, j + 1);
+            return Math.max(x, y) + data[i - 1][j - 1];
         }
     }
 

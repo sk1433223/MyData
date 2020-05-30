@@ -9,6 +9,6 @@ package com.example.demo.datastructure.hashtable;
 public class HashTableDoubleTest {
 
     public static void main(String[] args) {
-        
+
     }
 }

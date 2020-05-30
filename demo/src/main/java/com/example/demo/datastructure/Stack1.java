@@ -27,7 +27,7 @@ public class Stack1 {
 
         System.out.println(ls.peek());
 
-        while (!ls.isEmpty()){
+        while (!ls.isEmpty()) {
             System.out.println(ls.pop());
         }
 
@@ -39,7 +39,7 @@ public class Stack1 {
  * 实现简单的栈
  * 详:栈遵守元素 先进后出 ,不遵守就不是栈
  */
-class LowerStack{
+class LowerStack {
 
     /*
      * 利用数组实现栈
@@ -47,18 +47,19 @@ class LowerStack{
      * maxSize 初始化栈大小
      * top 栈顶元素
      */
-    private long [] elemData;
+    private long[] elemData;
     private int maxSize;
     private int top;
 
     /**
      * 初始化栈
+     *
      * @param size 长度
-     * maxSize 栈长度
-     * elemData 数组大小
-     * top 栈顶元素(-1代表空栈)
+     *             maxSize 栈长度
+     *             elemData 数组大小
+     *             top 栈顶元素(-1代表空栈)
      */
-    public LowerStack(int size){
+    public LowerStack(int size) {
         this.maxSize = size;
         elemData = new long[size];
         top = -1;
@@ -66,10 +67,11 @@ class LowerStack{
 
     /**
      * 实现压栈,添加(进栈)
+     *
      * @param data 元素
      */
-    public void push(long data){
-        if(top != maxSize-1){
+    public void push(long data) {
+        if (top != maxSize - 1) {
             elemData[++top] = data;
         }
     }
@@ -77,8 +79,8 @@ class LowerStack{
     /**
      * 出栈,弹栈
      */
-    public long pop(){
-        if(top == -1){
+    public long pop() {
+        if (top == -1) {
             return top;
         }
         return elemData[top--];
@@ -87,8 +89,8 @@ class LowerStack{
     /**
      * 读栈,返回顶端元素
      */
-    public long peek(){
-        if(top == -1 ){
+    public long peek() {
+        if (top == -1) {
             return top;
         }
         return elemData[top];
@@ -96,17 +98,15 @@ class LowerStack{
 
     /**
      * 空栈判断
-     *
-     *
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return (top == -1);
     }
 
     /**
      * 满栈判断
      */
-    public boolean isFull(){
-        return (top == maxSize-1);
+    public boolean isFull() {
+        return (top == maxSize - 1);
     }
 }

@@ -12,26 +12,27 @@ public class RecursionDemo5 {
 
     public static void main(String[] args) {
 
-        int[] a = {1,3,5,6,9};
-        int[] b = {2,4,7};
+        int[] a = {1, 3, 5, 6, 9};
+        int[] b = {2, 4, 7};
         int[] sort = sort(a, b);
         System.out.println(Arrays.toString(sort));
     }
 
     /**
      * 归并两个有序数组
+     *
      * @param a 第一个数组
      * @param b 第二个数组
      * @return
      */
-    public static int[] sort(int[] a,int[] b) {
-        int[] c = new int[a.length+b.length];
-        int aNum = 0,bNum = 0,cNum = 0;
+    public static int[] sort(int[] a, int[] b) {
+        int[] c = new int[a.length + b.length];
+        int aNum = 0, bNum = 0, cNum = 0;
         // 判断比照元素个数
-        while (aNum < a.length && bNum < b.length){
+        while (aNum < a.length && bNum < b.length) {
             if (a[aNum] > b[bNum]) {
                 c[cNum++] = b[bNum++];
-            }else {
+            } else {
                 c[cNum++] = a[aNum++];
             }
         }

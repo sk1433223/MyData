@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 /**
  * 实现有迭代器的链表
+ *
  * @param <T>
  */
 public class LinkedWithIterator<T> implements ListWithIteratorInterface<T> {
@@ -12,11 +13,11 @@ public class LinkedWithIterator<T> implements ListWithIteratorInterface<T> {
     private Node tail;
     private int size;
 
-    private class Node{
+    private class Node {
         private T data;
         private Node next;
 
-        public Node(T data){
+        public Node(T data) {
             this.data = data;
         }
 
@@ -32,11 +33,11 @@ public class LinkedWithIterator<T> implements ListWithIteratorInterface<T> {
     /**
      * 内部类的形式定义迭代器
      */
-    private class IteratorForLinkedList implements Iterator<T>{
+    private class IteratorForLinkedList implements Iterator<T> {
 
         private Node nextNode;
 
-        public IteratorForLinkedList(){
+        public IteratorForLinkedList() {
             nextNode = head;
         }
 
@@ -47,11 +48,11 @@ public class LinkedWithIterator<T> implements ListWithIteratorInterface<T> {
 
         @Override
         public T next() {
-            if (hasNext()){
+            if (hasNext()) {
                 Node rs = nextNode;
                 nextNode = nextNode.next;
                 return rs.data;
-            }else {
+            } else {
                 return null;
             }
         }
@@ -71,11 +72,11 @@ public class LinkedWithIterator<T> implements ListWithIteratorInterface<T> {
     @Override
     public void addHeader(T data) {
         Node newNode = new Node(data);
-        if (size == 0){
+        if (size == 0) {
             head = newNode;
             tail = newNode;
             size++;
-        }else {
+        } else {
             newNode.next = head;
             head = newNode;
             size++;
@@ -85,11 +86,11 @@ public class LinkedWithIterator<T> implements ListWithIteratorInterface<T> {
     @Override
     public void addTail(T data) {
         Node newNode = new Node(data);
-        if (size == 0){
+        if (size == 0) {
             head = newNode;
             tail = newNode;
             size++;
-        }else {
+        } else {
             tail.next = newNode;
             tail = newNode;
             size++;

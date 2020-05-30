@@ -33,7 +33,7 @@ public class Deque1 {
         myDeQue.addlast(416);
         myDeQue.addlast(417);
 
-        while (!myDeQue.isEmpty()){
+        while (!myDeQue.isEmpty()) {
             System.out.println(myDeQue.removeFirst());
         }
 
@@ -41,7 +41,7 @@ public class Deque1 {
     }
 }
 
-class MyDeQue{
+class MyDeQue {
 
     /**
      * 内部封装数组
@@ -74,7 +74,7 @@ class MyDeQue{
     /**
      * 构造方法初始化
      */
-    public MyDeQue(){
+    public MyDeQue() {
         this.elements = new Object[DEFAULT_CAPACITY];
         maxSize = 16;
         head = 0;
@@ -83,14 +83,15 @@ class MyDeQue{
 
     /**
      * 取模计算,实现指针循环
+     *
      * @param index 下标
      * @return
      */
-    public int getMod(int index){
-        if(index < 0){
+    public int getMod(int index) {
+        if (index < 0) {
             index = index + maxSize;
         }
-        if(index >= maxSize){
+        if (index >= maxSize) {
             index = index - maxSize;
         }
         return index;
@@ -98,39 +99,42 @@ class MyDeQue{
 
     /**
      * 头部插入
+     *
      * @param data
      */
-    public void addFirst(Object data){
+    public void addFirst(Object data) {
         //head = getMod(head-1);
-        head = (head-1) & (maxSize-1);
+        head = (head - 1) & (maxSize - 1);
         elements[head] = data;
-        if(head == tail){
+        if (head == tail) {
             expand();
         }
     }
 
     /**
      * 尾部插入
+     *
      * @param data
      */
-    public void addlast(Object data){
+    public void addlast(Object data) {
         elements[tail] = data;
         tail = getMod(tail + 1);
-        if (tail == head){
+        if (tail == head) {
             expand();
         }
     }
 
     /**
      * 头部移除
+     *
      * @return
      */
-    public Object removeFirst(){
+    public Object removeFirst() {
         Object removeObj = null;
-        if(head != tail){
+        if (head != tail) {
             removeObj = elements[head];
             elements[head] = null;
-            head = getMod(head+1);
+            head = getMod(head + 1);
         }
         return removeObj;
     }
@@ -138,22 +142,23 @@ class MyDeQue{
     /**
      * 实现尾部移除
      */
-    public Object removeLast(){
+    public Object removeLast() {
         Object removeObj = null;
-        if(head != tail){
-            tail =getMod(tail - 1);
+        if (head != tail) {
+            tail = getMod(tail - 1);
             removeObj = elements[tail];
             elements[tail] = null;
         }
         return removeObj;
     }
+
     /**
      * 获取头部元素
      */
-    public Object peekFirst(){
-        if(tail != head){
+    public Object peekFirst() {
+        if (tail != head) {
             return elements[head];
-        }else {
+        } else {
             return null;
         }
     }
@@ -161,15 +166,15 @@ class MyDeQue{
     /**
      * 获取尾部元素
      */
-    public Object peekLast(){
-        if(tail != head){
-            return elements[getMod(tail-1)];
-        }else {
+    public Object peekLast() {
+        if (tail != head) {
+            return elements[getMod(tail - 1)];
+        } else {
             return null;
         }
     }
 
-    public void  expand (){
+    public void expand() {
         int newSize = maxSize << 1;
         Object[] newObject = new Object[newSize];
 
@@ -179,8 +184,8 @@ class MyDeQue{
 
         // 将arr1数组里从索引为2的元素开始, 复制到数组arr2里的索引为5的
         // 位置, 复制的元素个数为10个.
-        System.arraycopy(elements,head,newObject,0,n);
-        System.arraycopy(elements,0,newObject,n,head);
+        System.arraycopy(elements, head, newObject, 0, n);
+        System.arraycopy(elements, 0, newObject, n, head);
 
         head = 0;
         tail = maxSize;
@@ -190,12 +195,12 @@ class MyDeQue{
     }
 
     // 取出元素个数
-    public int getSize (){
+    public int getSize() {
         return getMod(tail - head);
     }
 
     //
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return (tail == head);
     }
 

@@ -47,6 +47,7 @@ class MyQueue {
 
     /**
      * 初始化队列
+     *
      * @param size 队列长度
      */
     public MyQueue(int size) {

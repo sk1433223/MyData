@@ -14,11 +14,11 @@ public class DataItem {
      */
     public int data;
 
-    public DataItem (int data) {
+    public DataItem(int data) {
         this.data = data;
     }
 
-    public void disPlayItem () {
-        System.out.println("/"+data);
+    public void disPlayItem() {
+        System.out.println("/" + data);
     }
 }

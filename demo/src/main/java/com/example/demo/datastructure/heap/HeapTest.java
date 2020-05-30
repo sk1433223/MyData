@@ -23,7 +23,7 @@ public class HeapTest {
         System.out.println();
         heap.disPlayHeap();
 
-        heap.change(1,100);
+        heap.change(1, 100);
         heap.disPlayHeap();
     }
 }

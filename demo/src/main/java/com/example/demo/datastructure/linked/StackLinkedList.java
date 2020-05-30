@@ -14,41 +14,44 @@ public class StackLinkedList {
     }
 }
 
-class StackSingleLinkedList{
+class StackSingleLinkedList {
     private SingleLinkedList link;
 
-    public StackSingleLinkedList(){
-         link = new SingleLinkedList();
+    public StackSingleLinkedList() {
+        link = new SingleLinkedList();
     }
 
     /**
      * 压栈
+     *
      * @param data
      */
-    public void push(Object data){
+    public void push(Object data) {
         link.addhead(data);
     }
 
     /**
      * 弹出栈顶元素
+     *
      * @return
      */
-    public Object pop(){
+    public Object pop() {
         return link.delectHead();
     }
 
     /**
      * 判断空栈
+     *
      * @return
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return link.isEmpty();
     }
 
     /**
      * 遍历
      */
-    public void display(){
+    public void display() {
         link.disPlay();
     }
 }

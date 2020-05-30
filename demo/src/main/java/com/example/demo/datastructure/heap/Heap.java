@@ -25,23 +25,24 @@ public class Heap {
 
     /**
      * 构造函数初始化
+     *
      * @param size
      */
-    public Heap (int size) {
+    public Heap(int size) {
         maxSize = size;
         currentSize = 0;
         heapArray = new Node[size];
     }
 
-    public boolean isEmpty () {
+    public boolean isEmpty() {
         return currentSize == 0;
     }
 
-    public boolean isFull () {
+    public boolean isFull() {
         return currentSize == maxSize;
     }
 
-    public boolean insert (int key) {
+    public boolean insert(int key) {
         if (isFull()) {
             System.out.println("堆数组已满!");
             return false;
@@ -51,12 +52,13 @@ public class Heap {
         trickleUp(currentSize++);
         return true;
     }
+
     /**
      * 向上取整
      */
     private void trickleUp(int index) {
         // 获取目标节点父节点索引
-        int parent = (index-1) / 2;
+        int parent = (index - 1) / 2;
         // 保存新加的尾节点
         Node bottom = heapArray[index];
         while (index > 0 && heapArray[parent].getData() < bottom.getData()) {
@@ -67,7 +69,7 @@ public class Heap {
         heapArray[index] = bottom;
     }
 
-    public Node remove () {
+    public Node remove() {
         Node node = heapArray[0];
         // 使数组最后一个元素替换第一个元素
         heapArray[0] = heapArray[--currentSize];
@@ -77,19 +79,20 @@ public class Heap {
 
     /**
      * 向下调整
+     *
      * @param index
      */
     private void trickleDown(int index) {
         Node top = heapArray[index];
         int largeChildIndex;
         // currentSize/2表示是否到达叶子节点
-        while (index < currentSize/2) {
+        while (index < currentSize / 2) {
             int leftChildIndex = 2 * index + 1;
             int rightChildIndex = leftChildIndex + 1;
             if (rightChildIndex < currentSize &&
-                heapArray[leftChildIndex].getData() < heapArray[rightChildIndex].getData()) {
+                    heapArray[leftChildIndex].getData() < heapArray[rightChildIndex].getData()) {
                 largeChildIndex = rightChildIndex;
-            }else {
+            } else {
                 largeChildIndex = leftChildIndex;
             }
             if (top.getData() >= heapArray[largeChildIndex].getData()) {
@@ -103,11 +106,12 @@ public class Heap {
 
     /**
      * 改变数据
-     * @param index 索引值
+     *
+     * @param index    索引值
      * @param newValue 数据值
      * @return
      */
-    public boolean change (int index,int newValue) {
+    public boolean change(int index, int newValue) {
         if (index < 0 || index >= currentSize) {
             return false;
         }
@@ -115,18 +119,18 @@ public class Heap {
         heapArray[index].setData(newValue);
         if (oldValue < newValue) {
             trickleUp(index);
-        }else {
+        } else {
             trickleDown(index);
         }
-        return  true;
+        return true;
     }
 
-    public void disPlayHeap () {
+    public void disPlayHeap() {
         System.out.println("heapArray format(遍历堆[数组]):");
         for (int i = 0; i < currentSize; i++) {
             if (heapArray[i] != null) {
-                System.out.print(heapArray[i].getData()+"  ");
-            }else {
+                System.out.print(heapArray[i].getData() + "  ");
+            } else {
                 System.out.print("--");
             }
         }
@@ -143,17 +147,18 @@ class Node {
 
     /**
      * 构造初始化
+     *
      * @param key
      */
-    public Node (int key) {
+    public Node(int key) {
         data = key;
     }
 
-    public int getData () {
+    public int getData() {
         return data;
     }
 
-    public void setData (int key) {
+    public void setData(int key) {
         data = key;
     }
 }

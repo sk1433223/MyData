@@ -3,9 +3,9 @@ package com.example.demo.recursion;
 import java.util.Scanner;
 
 /**
- * @Name：阿康
- * @Description：递归实现阶乘
- * @Date：2020/1/17 13:57
+ * @author 阿康
+ * @Description: 递归实现阶乘
+ * @date 2020/1/17
  */
 public class RecursionDemo1 {
 
@@ -19,21 +19,22 @@ public class RecursionDemo1 {
         //递归方法
         getFactorial(n);
 
-        System.out.println(n+"!是"+rs);
+        System.out.println(n + "!是" + rs);
 
     }
 
     /**
      * 计算阶乘（循环方式）
+     *
      * @return
      */
-    public static int getFactorialFor(int n){
+    public static int getFactorialFor(int n) {
         int temp = 1;
-        if (n >= 0){
-            for (int i = 1; i <= n ; i++) {
-                temp = temp*i;
+        if (n >= 0) {
+            for (int i = 1; i <= n; i++) {
+                temp = temp * i;
             }
-        }else{
+        } else {
             return -1;
         }
         return temp;
@@ -41,6 +42,7 @@ public class RecursionDemo1 {
 
     /**
      * 使用递归实现阶乘
+     *
      * @param n
      * @return
      */

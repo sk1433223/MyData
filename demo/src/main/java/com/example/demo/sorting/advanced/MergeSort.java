@@ -11,11 +11,13 @@ import java.util.Arrays;
 public class MergeSort {
 
 
-    /** 测试 */
+    /**
+     * 测试
+     */
     public static void main(String[] args) {
-        int [] array = {3,1,4,2,7,5,9};
+        int[] array = {3, 1, 4, 2, 7, 5, 9, 6, 0, 8};
         int[] arr = mergeSort(array);
-        for (int i=0;i<array.length;i++){
+        for (int i = 0; i < array.length; i++) {
             System.out.println(arr[i]);
         }
 
@@ -26,7 +28,7 @@ public class MergeSort {
      *
      * @param array 排序数组
      * @return array
-     *
+     * <p>
      * Arrays.copyOfRange(T[ ] original,int from,int to)
      * 将一个原始的数组original，从下标from开始复制，复制到上标to，生成一个新的数组
      * (注意这里包括下标from，不包括上标to)
@@ -45,7 +47,7 @@ public class MergeSort {
     /**
      * 归并排序 —— 将两段排序好的数组结合成一个新排序数组
      *
-     * @param left 左数组
+     * @param left  左数组
      * @param right 右数组
      * @return result
      */

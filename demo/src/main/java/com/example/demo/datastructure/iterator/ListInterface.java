@@ -2,6 +2,7 @@ package com.example.demo.datastructure.iterator;
 
 /**
  * 实现迭代器的接口规范
+ *
  * @Describe
  */
 public interface ListInterface<T> {

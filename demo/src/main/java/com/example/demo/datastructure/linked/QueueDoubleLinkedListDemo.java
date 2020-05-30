@@ -16,32 +16,32 @@ public class QueueDoubleLinkedListDemo {
     }
 }
 
-class QueueDoubleLinkedList{
+class QueueDoubleLinkedList {
 
     private DoubleLinkedList doubleLinkedList;
 
-    public QueueDoubleLinkedList(){
+    public QueueDoubleLinkedList() {
         doubleLinkedList = new DoubleLinkedList();
     }
 
-    public void  insert(Object data){
+    public void insert(Object data) {
         doubleLinkedList.addTail(data);
 
     }
 
-    public  Object delete(){
+    public Object delete() {
         return doubleLinkedList.delectHead();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return doubleLinkedList.isEmpty();
     }
 
-    public int getSize(){
+    public int getSize() {
         return doubleLinkedList.getSize();
     }
 
-    public void disPlay(){
+    public void disPlay() {
         doubleLinkedList.disPlay();
     }
 

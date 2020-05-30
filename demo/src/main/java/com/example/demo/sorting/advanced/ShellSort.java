@@ -9,8 +9,8 @@ import java.util.Arrays;
 public class ShellSort {
 
     public static void main(String[] args) {
-        int[] arr = {99,98,97,96,95,94,11,10,9,8,7,6,5,4,};
-        int[] ints = ShellSort(arr);
+        int[] arr = {99, 98, 97, 96, 95, 94, 11, 10, 9, 8, 7, 6, 5, 4,};
+        int[] ints = shellSort(arr);
         System.out.println(Arrays.toString(ints));
     }
 
@@ -20,7 +20,7 @@ public class ShellSort {
      * @param array 排序数组
      * @return array
      */
-    public static int[] ShellSort(int[] array) {
+    public static int[] shellSort(int[] array) {
         int len = array.length;
         int temp, gap = len / 2;
         while (gap > 0) {

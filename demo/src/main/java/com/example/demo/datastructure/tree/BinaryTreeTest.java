@@ -24,6 +24,5 @@ public class BinaryTreeTest {
         bt.midOrder(root);
 
 
-
     }
 }

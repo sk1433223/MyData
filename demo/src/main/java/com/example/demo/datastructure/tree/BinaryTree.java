@@ -17,6 +17,7 @@ public class BinaryTree {
 
     /**
      * 查找某个节点
+     *
      * @param data
      * @return
      */
@@ -26,9 +27,9 @@ public class BinaryTree {
             // 查找判断左右子节点
             if (data < current.getData()) {
                 current = current.getLeftChild();
-            }else if (data > current.getData()){
+            } else if (data > current.getData()) {
                 current = current.getRightChild();
-            }else {
+            } else {
                 return current;
             }
         }
@@ -38,15 +39,16 @@ public class BinaryTree {
 
     /**
      * 插入节点
+     *
      * @param data
      */
     public void insert(int data) {
-        Node newNode = new Node(true,data,null,null,null);
+        Node newNode = new Node(true, data, null, null, null);
         // 如果二叉树为null,则把插入值作为根节点
         if (root == null) {
             root = newNode;
             root.setColor(false);
-        }else {
+        } else {
             Node current = root;
             Node parentNode;
             while (current != null) {
@@ -57,7 +59,7 @@ public class BinaryTree {
                         parentNode.setLeftChild(newNode);
                         newNode.setParent(parentNode);
                     }
-                }else {
+                } else {
                     current = current.getRightChild();
                     if (current == null) {
                         parentNode.setRightChild(newNode);
@@ -72,6 +74,7 @@ public class BinaryTree {
 
     /**
      * 实现红黑树的自我修正
+     *
      * @param node
      */
     private void insertFixUp(Node node) {
@@ -80,8 +83,8 @@ public class BinaryTree {
         Node uncle;
 
         // 修正违反红黑树规则的节点
-        while (((parent= node.getParent()) != null) && parent.getColor()) {
-                // 拿到父节点的父节点
+        while (((parent = node.getParent()) != null) && parent.getColor()) {
+            // 拿到父节点的父节点
             grandFather = parent.getParent();
 
             // 判断node是父节点的左,右子节点
@@ -90,7 +93,7 @@ public class BinaryTree {
                 uncle = grandFather.getRightChild();
 
                 // 情况(1)parent是红的,uncle是红
-                if(uncle != null && uncle.getColor()) {
+                if (uncle != null && uncle.getColor()) {
                     parent.setColor(false);
                     uncle.setColor(false);
                     grandFather.setColor(true);
@@ -116,7 +119,7 @@ public class BinaryTree {
                 uncle = grandFather.getLeftChild();
 
                 // 情况(1)parent是红的,uncle是红
-                if(uncle != null && uncle.getColor()) {
+                if (uncle != null && uncle.getColor()) {
                     parent.setColor(false);
                     uncle.setColor(false);
                     grandFather.setColor(true);
@@ -144,12 +147,13 @@ public class BinaryTree {
     /**
      * 二叉树中序遍历
      * 注:中序遍历:左子树——>根节点——>右子树
+     *
      * @param current
      */
     public void midOrder(Node current) {
         if (current != null) {
             midOrder(current.getLeftChild());
-            System.out.print(current.getData()+"\t");
+            System.out.print(current.getData() + "\t");
             midOrder(current.getRightChild());
         }
     }
@@ -157,11 +161,12 @@ public class BinaryTree {
     /**
      * 前序遍历
      * 注:前序遍历:根节点——>左子树——>右子树
+     *
      * @param current
      */
     public void preOrder(Node current) {
         if (current != null) {
-            System.out.print(current.getData()+"\t");
+            System.out.print(current.getData() + "\t");
             preOrder(current.getLeftChild());
             preOrder(current.getRightChild());
         }
@@ -170,18 +175,20 @@ public class BinaryTree {
     /**
      * 后序遍历
      * 注:左子树——>右子树——>根节点
+     *
      * @param current
      */
-    public void postOrder (Node current) {
+    public void postOrder(Node current) {
         if (current != null) {
             postOrder(current.getLeftChild());
             postOrder(current.getRightChild());
-            System.out.print(current.getData()+"\t");
+            System.out.print(current.getData() + "\t");
         }
     }
 
     /**
      * 找到最大值
+     *
      * @return
      */
     public Node findMax() {
@@ -193,11 +200,12 @@ public class BinaryTree {
             current = current.getRightChild();
 
         }
-        return  maxNode;
+        return maxNode;
     }
 
     /**
      * 找到最小值
+     *
      * @return
      */
     public Node findMin() {
@@ -208,11 +216,12 @@ public class BinaryTree {
             minNode = current;
             current = current.getLeftChild();
         }
-        return  minNode;
+        return minNode;
     }
 
     /**
      * 二叉树实现删除节点
+     *
      * @param data
      * @return
      */
@@ -227,7 +236,7 @@ public class BinaryTree {
             if (data < current.getData()) {
                 current = current.getLeftChild();
                 isLeftChild = true;
-            }else {
+            } else {
                 current = current.getRightChild();
                 isLeftChild = false;
             }
@@ -244,46 +253,46 @@ public class BinaryTree {
             // 1.无左右子节点的节点
             if (current == root) {
                 root = null;
-            }else {
+            } else {
                 if (isLeftChild) {
                     parent.setLeftChild(null);
-                }else {
+                } else {
                     parent.setRightChild(null);
                 }
             }
             return true;
-        }else if (current.getLeftChild() != null && current.getRightChild() == null) {
+        } else if (current.getLeftChild() != null && current.getRightChild() == null) {
             // 2.只有左节点的节点
             if (current == root) {
                 root = current.getLeftChild();
-            }else {
+            } else {
                 if (isLeftChild) {
                     parent.setLeftChild(current.getLeftChild());
-                }else {
+                } else {
                     parent.setRightChild(current.getLeftChild());
                 }
             }
-        }else if (current.getLeftChild() == null && current.getRightChild() != null) {
+        } else if (current.getLeftChild() == null && current.getRightChild() != null) {
             // 2.只有右节点的节点
             if (current == root) {
                 root = current.getRightChild();
-            }else {
+            } else {
                 if (isLeftChild) {
                     parent.setLeftChild(current.getRightChild());
-                }else {
+                } else {
                     parent.setRightChild(current.getRightChild());
                 }
             }
-        }else {
+        } else {
             // 4.删除有两个子节点的节点
             Node replaceNode = getReplaceNode(current);
 
             if (current == root) {
                 root = replaceNode;
-            }else {
+            } else {
                 if (isLeftChild) {
                     parent.setLeftChild(replaceNode);
-                }else {
+                } else {
                     parent.setRightChild(replaceNode);
                 }
             }
@@ -296,6 +305,7 @@ public class BinaryTree {
 
     /**
      * 寻找子树最小节点
+     *
      * @param delNode
      * @return
      */
@@ -323,6 +333,7 @@ public class BinaryTree {
 
     /**
      * 实现红黑树左旋转
+     *
      * @param x
      */
     private void leftRotate(Node x) {
@@ -339,10 +350,10 @@ public class BinaryTree {
         y.setParent(x.getParent());
         if (x.getParent() == null) {
             root = y;
-        }else {
+        } else {
             if (x == x.getParent().getLeftChild()) {
                 x.getParent().setLeftChild(y);
-            }else {
+            } else {
                 x.getParent().setRightChild(y);
             }
         }
@@ -357,6 +368,7 @@ public class BinaryTree {
      * 1.将x的右节点赋值给y的左子节点,并将y赋值给x右节点的父节点
      * 2.将y的父节点p赋值给x的父节点,更新p的子节点为x
      * 3.将x的右节点设为y,将y的父节点设为x
+     *
      * @param y
      */
     private void rightRotate(Node y) {
@@ -371,10 +383,10 @@ public class BinaryTree {
         x.setParent(y.getParent());
         if (y.getParent() == null) {
             this.root = x;
-        }else {
+        } else {
             if (y == y.getParent().getLeftChild()) {
                 y.getParent().setLeftChild(x);
-            }else {
+            } else {
                 y.getParent().setRightChild(x);
             }
         }

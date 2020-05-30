@@ -21,16 +21,16 @@ public class OrderLinkedListDemo {
 /**
  * 有序链表的实现
  */
-class OrderLinkedList{
+class OrderLinkedList {
 
-    private  Node head;
-    private  int size;
+    private Node head;
+    private int size;
 
-    private class Node{
+    private class Node {
         private int data;
         private Node next;
 
-        public Node(int data){
+        public Node(int data) {
             this.data = data;
         }
 
@@ -43,30 +43,31 @@ class OrderLinkedList{
         }
     }
 
-    public  OrderLinkedList(){
+    public OrderLinkedList() {
         head = null;
         size = 0;
     }
 
     /**
      * 有序链表
+     *
      * @param data
      */
-    public void insert(int data){
+    public void insert(int data) {
         Node newNode = new Node(data);
         Node previous = null;
         Node curent = head;
         // 判断添加节点位置
-        while (curent != null  && data > curent.data){
-            previous = curent ;
+        while (curent != null && data > curent.data) {
+            previous = curent;
             curent = curent.next;
         }
 
-        if(previous == null){
+        if (previous == null) {
             head = newNode;
             head.next = curent;
             size++;
-        }else {
+        } else {
             newNode.next = curent;
             previous.next = newNode;
             size++;
@@ -76,7 +77,7 @@ class OrderLinkedList{
     /**
      * 删除头节点
      */
-    public Object delectHead(){
+    public Object delectHead() {
         Object obj = head.data;
         head = head.next;
         size--;
@@ -86,27 +87,27 @@ class OrderLinkedList{
     /**
      * 循环遍历
      */
-    public void disPlay(){
-        if (size > 0){
+    public void disPlay() {
+        if (size > 0) {
             Node curent = head;
             int tmpsize = size;
-            if (tmpsize==1){
-                System.out.println("["+head+"]");
+            if (tmpsize == 1) {
+                System.out.println("[" + head + "]");
                 return;
             }
-            while (tmpsize > 0){
-                if (curent == head){
-                    System.out.print("["+curent.data+"->");
-                }else if (curent.next==null){
-                    System.out.print(curent.data+"]");
-                }else {
-                    System.out.print(curent.data+"->");
+            while (tmpsize > 0) {
+                if (curent == head) {
+                    System.out.print("[" + curent.data + "->");
+                } else if (curent.next == null) {
+                    System.out.print(curent.data + "]");
+                } else {
+                    System.out.print(curent.data + "->");
                 }
                 tmpsize--;
                 curent = curent.next;
             }
             System.out.println();
-        }else{
+        } else {
             System.out.println("[]");
         }
     }

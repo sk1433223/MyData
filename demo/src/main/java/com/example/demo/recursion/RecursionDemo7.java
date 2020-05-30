@@ -14,14 +14,15 @@ public class RecursionDemo7 {
 
     /**
      * 1+2+3+...+n的值
+     *
      * @param n
      * @return
      */
-    public static int addn(int n){
-        if (n == 1){
+    public static int addn(int n) {
+        if (n == 1) {
             return 1;
-        }else{
-            return n+addn(n-1);
+        } else {
+            return n + addn(n - 1);
         }
     }
 }

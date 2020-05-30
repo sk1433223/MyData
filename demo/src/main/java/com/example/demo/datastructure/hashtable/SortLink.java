@@ -9,7 +9,7 @@ package com.example.demo.datastructure.hashtable;
 public class SortLink {
     private LinkNode first;
 
-    public SortLink () {
+    public SortLink() {
         first = null;
     }
 
@@ -19,22 +19,23 @@ public class SortLink {
 
     /**
      * 删除指定数据项
+     *
      * @param key
      */
-    public void delete (int key) {
+    public void delete(int key) {
         LinkNode previous = null;
         LinkNode current = first;
         if (isEmpty()) {
             System.out.println("Linked is Empty!!");
             return;
         }
-        while (current != null && current .getKey() != key) {
+        while (current != null && current.getKey() != key) {
             previous = current;
             current = current.next;
         }
         if (previous == null) {
             first = first.next;
-        }else {
+        } else {
             //
             assert current != null;
             previous.next = current.next;
@@ -51,24 +52,24 @@ public class SortLink {
         }
         if (previous == null) {
             first = node;
-        }else {
+        } else {
             previous.next = node;
         }
         node.next = current;
     }
 
-    public LinkNode find (int key) {
+    public LinkNode find(int key) {
         LinkNode current = first;
         while (current != null && current.getKey() <= key) {
             if (current.getKey() == key) {
-                return  current;
+                return current;
             }
             current = current.next;
         }
         return null;
     }
 
-    public void disPlayLink () {
+    public void disPlayLink() {
         System.out.println("link disPlay!");
         LinkNode current = first;
         while (current != null) {
@@ -93,15 +94,15 @@ class LinkNode {
      */
     public LinkNode next;
 
-    public LinkNode (int data) {
+    public LinkNode(int data) {
         this.data = data;
     }
 
     public int getKey() {
-        return  data;
+        return data;
     }
 
-    public void disPlayLink () {
-        System.out.println(data+" ");
+    public void disPlayLink() {
+        System.out.println(data + " ");
     }
 }

@@ -17,7 +17,7 @@ public class Vertex {
      */
     public boolean isVisited;
 
-    public Vertex (char label) {
+    public Vertex(char label) {
         this.label = label;
         isVisited = false;
     }

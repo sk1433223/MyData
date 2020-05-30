@@ -13,42 +13,42 @@ public class Tree234 {
     /**
      * 初始化一个空的234树
      */
-    public Tree234 () {
+    public Tree234() {
         root = new Node();
     }
 
     /**
      * 实现搜索234树
      * 找到指定的节点数据,并返回这个数据在节点的数据项数组中的索引,无返回-1
+     *
      * @param key
      * @return
      */
-    public int find (int key) {
+    public int find(int key) {
         Node current = root;
         int childNumber;
         while (true) {
             if ((childNumber = current.findItem(key)) != -1) {
                 // 在234树中找到了key
                 return childNumber;
-            }else if (current.isLeaf()) {
+            } else if (current.isLeaf()) {
                 // 如果到达叶子节点则说明无指定数据
                 return -1;
-            }else {
-                current = getNextNode(current,key);
+            } else {
+                current = getNextNode(current, key);
             }
         }
     }
 
     /**
-     *
      * @param theNode
      * @param theValue
      * @return
      */
     private Node getNextNode(Node theNode, int theValue) {
-        int i ;
+        int i;
         int numItems = theNode.getNumItems();
-        for (i = 0;i < numItems;i++) {
+        for (i = 0; i < numItems; i++) {
             if (theValue < theNode.getItem(i).data) {
                 return theNode.getChild(i);
             }
@@ -57,11 +57,11 @@ public class Tree234 {
     }
 
     /**
-     *
      * 插入数据项
+     *
      * @param insValue
      */
-    public void insert (int insValue) {
+    public void insert(int insValue) {
         Node current = root;
         DataItem tempItem = new DataItem(insValue);
         while (true) {
@@ -69,12 +69,12 @@ public class Tree234 {
             if (current.isFull()) {
                 split(current);
                 current = current.getParent();
-                current = getNextNode(current,insValue);
-            }else if (current.isLeaf()) {
+                current = getNextNode(current, insValue);
+            } else if (current.isLeaf()) {
                 //当前节点是叶节点
                 break;
-            }else {
-                current = getNextNode(current,insValue);
+            } else {
+                current = getNextNode(current, insValue);
             }
         }
         current.insertItems(tempItem);
@@ -82,6 +82,7 @@ public class Tree234 {
 
     /**
      * 实现节点分裂
+     *
      * @param theNode
      */
     private void split(Node theNode) {
@@ -107,8 +108,8 @@ public class Tree234 {
             // 根节点分裂
             root = new Node();
             parent = root;
-            root.connectChild(0,theNode);
-        }else {
+            root.connectChild(0, theNode);
+        } else {
             // 不是根节点分裂
             parent = theNode.getParent();
         }
@@ -121,43 +122,43 @@ public class Tree234 {
         // B节点插入父节点后数据项的个数
         int n = parent.getNumItems();
         Node temp;
-        for (int i = n-1; i > itemBinParentIndex; i--) {
+        for (int i = n - 1; i > itemBinParentIndex; i--) {
             temp = parent.disconnectChild(i);
-            parent.connectChild(i+1,temp);
+            parent.connectChild(i + 1, temp);
         }
 
         // 移除右边新节点
         // itemC放到新节点
         rightNewNode.insertItems(itemC);
-        parent.connectChild(itemBinParentIndex+1,rightNewNode);
-        rightNewNode.connectChild(0,child2);
-        rightNewNode.connectChild(1,child3);
+        parent.connectChild(itemBinParentIndex + 1, rightNewNode);
+        rightNewNode.connectChild(0, child2);
+        rightNewNode.connectChild(1, child3);
     }
 
     /**
      * 使用递归打印输出
+     *
      * @param thisNode
      * @param level
      * @param childNum
      */
-    public void recursionDisPlayTree234 (Node thisNode,int level,int childNum) {
-        System.out.println("level="+level+" child:"+childNum);
+    public void recursionDisPlayTree234(Node thisNode, int level, int childNum) {
+        System.out.println("level=" + level + " child:" + childNum);
         thisNode.displayNode();
         int numItems = thisNode.getNumItems();
-        for (int i = 0;i<numItems+1;i++) {
+        for (int i = 0; i < numItems + 1; i++) {
             Node childNode = thisNode.getChild(i);
             // 递归边界条件
             if (childNode == null) {
                 return;
-            }
-            else {
-                recursionDisPlayTree234(childNode,level+1,i);
+            } else {
+                recursionDisPlayTree234(childNode, level + 1, i);
             }
         }
     }
 
     public void displayTree() {
-        recursionDisPlayTree234(root,0,0);
+        recursionDisPlayTree234(root, 0, 0);
     }
 
 }

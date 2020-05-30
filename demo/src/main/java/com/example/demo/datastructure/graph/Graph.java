@@ -22,7 +22,7 @@ public class Graph {
      * 邻接矩阵储存"边"
      * 数组元素0表示无边界,数组1表示有边界
      */
-    private int[] [] adjMat;
+    private int[][] adjMat;
 
     /**
      * 顶点个数
@@ -62,25 +62,27 @@ public class Graph {
     /**
      * 添加顶点到数组中
      */
-    public void insert (char label) {
+    public void insert(char label) {
         vertexList[nVert++] = new Vertex(label);
     }
 
     /**
      * 邻接矩阵表示边是对称的,两部分都要赋值
+     *
      * @param start
      * @param end
      */
-    public void addEdge (int start,int end) {
+    public void addEdge(int start, int end) {
         adjMat[start][end] = 1;
         adjMat[end][start] = 1;
     }
 
     /**
      * 打印某个顶点的值
+     *
      * @param v
      */
-    public void disPlayVertex (int v) {
+    public void disPlayVertex(int v) {
         System.out.print(vertexList[v].label);
     }
 
@@ -89,10 +91,9 @@ public class Graph {
      * 1.用peek()方法检查栈顶的顶点
      * 2.用getAdjUnvisitedVertex()方法找到当前栈顶点邻接且未被访问的顶点
      * 3.第二部方法返回值不等于-1,则找到下一个未访问的邻接顶点,访问这个顶点,
-     *   并入栈,返回-1则没有找到,出栈
-     *
+     * 并入栈,返回-1则没有找到,出栈
      */
-    public void depthFirstSearch () {
+    public void depthFirstSearch() {
         // 从第一个顶点开始访问
         // 访问后标记未true
         vertexList[0].isVisited = true;
@@ -107,7 +108,7 @@ public class Graph {
             if (v == -1) {
                 // 如果当前顶点为-1,表示没有邻接且未被访问出顶点
                 theStack.pop();
-            }else {
+            } else {
                 vertexList[v].isVisited = true;
                 disPlayVertex(current);
                 disPlayVertex(v);
@@ -123,10 +124,11 @@ public class Graph {
 
     /**
      * 找到与某一顶点邻接且未被访问的顶点
+     *
      * @param v
      * @return
      */
-    private int getAdjUnvisitedVertex (int v) {
+    private int getAdjUnvisitedVertex(int v) {
         for (int i = 0; i < nVert; i++) {
             if (adjMat[v][i] == 1 && !vertexList[i].isVisited) {
                 return i;
@@ -143,7 +145,7 @@ public class Graph {
      * 4.如果找到,访问这个顶点,并放到队列中
      */
 
-    public void breadthFirstSearch () {
+    public void breadthFirstSearch() {
         vertexList[0].isVisited = true;
         disPlayVertex(0);
         theQueue.insert(0);
@@ -170,10 +172,10 @@ public class Graph {
         graph.insert('D');
         graph.insert('E');
 
-        graph.addEdge(0,1); // AB
-        graph.addEdge(1,2); // BC
-        graph.addEdge(0,3); // AD
-        graph.addEdge(0,4); // DE
+        graph.addEdge(0, 1); // AB
+        graph.addEdge(1, 2); // BC
+        graph.addEdge(0, 3); // AD
+        graph.addEdge(0, 4); // DE
 
         System.out.println();
         graph.depthFirstSearch();// ABCDE
